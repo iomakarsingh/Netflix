@@ -1,0 +1,158 @@
+/* ============================
+   MY LIST PAGE
+   ============================ */
+.mylist-page {
+  min-height: 100vh;
+  background: var(--bg-dark);
+}
+
+.mylist-main {
+  padding: 100px 4% 80px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.mylist-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.mylist-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+.mylist-count {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Empty State */
+.mylist-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  gap: 16px;
+}
+
+.mylist-empty-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.mylist-empty-sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* Grid */
+.mylist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+/* Card */
+.mylist-card {
+  cursor: pointer;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: transform var(--transition-fast);
+}
+
+.mylist-card:hover {
+  transform: scale(1.04);
+}
+
+.mylist-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.mylist-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-med);
+}
+
+.mylist-card:hover .mylist-card-img {
+  transform: scale(1.05);
+}
+
+.mylist-card-hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.mylist-card:hover .mylist-card-hover {
+  opacity: 1;
+}
+
+.mylist-card-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mylist-remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+  border: 1.5px solid rgba(255,255,255,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.mylist-remove-btn:hover {
+  background: var(--netflix-red);
+  border-color: var(--netflix-red);
+}
+
+.mylist-card-title {
+  padding: 10px 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+  .mylist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .mylist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
